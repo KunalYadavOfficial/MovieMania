@@ -9,7 +9,7 @@ data class MovieDetails(
     @Json("backdrop_path"         ) var backdropPath        : String?                        = null,
     @Json("belongs_to_collection" ) var belongsToCollection : String?                        = null,
     @Json("budget"                ) var budget              : Int?                           = null,
-    @SerializedName("genres"                ) var genres              : ArrayList<Genres>              = arrayListOf(),
+    @Json("genres"                ) var genres              : ArrayList<Genres>              = arrayListOf(),
     @SerializedName("homepage"              ) var homepage            : String?                        = null,
     @SerializedName("id"                    ) var id                  : Int?                           = null,
     @SerializedName("imdb_id"               ) var imdbId              : String?                        = null,
