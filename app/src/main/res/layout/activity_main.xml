@@ -7,8 +7,19 @@
     tools:context=".ui.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_popularMovies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:listitem="@tools:sample/avatars"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_TVSeries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:listitem="@tools:sample/avatars"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

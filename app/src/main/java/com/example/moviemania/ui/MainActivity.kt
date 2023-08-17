@@ -25,6 +25,7 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity() {
 
     private lateinit var movieViewModel : MainViewModel
+    private val TAG : String = "Main Activity"
 
     object API{
 
@@ -46,11 +47,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO){
             try {
                 val movies =  moviesRepository.getPopularMovies(API_TOKEN)
-                Log.d("Main Activity test",movies.body().toString())
+                Log.d(TAG,movies.body().toString())
             }
          catch (e : Exception)
          {
-             Log.d("Main Activity",e.toString())
+             Log.d(TAG,e.toString())
          }
         }
         //Log.d("Main Activity test",test.body().toString())
@@ -62,7 +63,12 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
 
             try {
-                val movieDetails = moviesRepository.getMO
+                val movieDetails = moviesRepository.getMovieDetails(API_TOKEN,614479)
+                Log.d(TAG,movieDetails.body().toString())
+
+            }
+            catch (e : Exception) {
+                Log.d(TAG,e.toString())
             }
         }
     }

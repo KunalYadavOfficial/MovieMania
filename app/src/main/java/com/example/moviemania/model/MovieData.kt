@@ -16,6 +16,7 @@ data class MovieData(
     @Json(name="original_title")  val title:String?=null,
     @Json(name="poster_path")  val posterPath: String? =null,
     @Json(name="vote_average") val rating : String?=null
+
 )
 {
     companion object{

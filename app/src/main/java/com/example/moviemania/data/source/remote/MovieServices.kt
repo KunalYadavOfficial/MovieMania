@@ -1,5 +1,6 @@
 package com.example.moviemania.data.source.remote
 
+import com.example.moviemania.model.MovieDetails
 import com.example.moviemania.model.PopularMovies
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -34,15 +35,15 @@ interface MovieServices {
     suspend fun getMovieDetails(
         @Header("Authorization") authToken: String,
         @Path("movie_id") movieId :Int
-    )
+    ) : Response<MovieDetails>
     //base url : https://api.themoviedb.org/3/
     //https://image.tmdb.org/t/p/w185/fiVW06jE7z9YnO4trhaMEdclSiC.jpg for fetching image
 
     //Singleton object not lazy
-    /*companion object {
+    companion object {
         const val BASE_URL = "https://api.themoviedb.org/3/"
 
-    }*/
+    }
 
 
 }
@@ -50,9 +51,9 @@ interface MovieServices {
 //singleton object but lazy
 object MovieNetwork
 {
-    const val BASE_URL = "https://api.themoviedb.org/3/"
+    //const val BASE_URL = "https://api.themoviedb.org/3/"
     private val retrofit  = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(MovieServices.BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build()))
         //.addConverterFactory(GsonConverterFactory.create())
         .build()
