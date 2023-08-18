@@ -7,10 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviemania.data.repository.MoviesRepository
-import com.example.moviemania.data.source.local.database.MovieDatabase
-import com.example.moviemania.data.source.remote.MovieNetwork
-import com.example.moviemania.data.source.remote.MovieServices
+
 import com.example.moviemania.model.PopularMovies
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -21,14 +18,14 @@ class MainViewModel () : ViewModel() {
     val popularMovies :LiveData<PopularMovies> = MutablepopularMovies
 
 
-    private val moviesRepository  = MoviesRepository(MovieNetwork, MovieDatabase.getInstance(Application()))
+    //private val moviesRepository  = MoviesRepository(MovieNetwork, MovieDatabase.getInstance(Application()))
 
     fun getPopularMovies(authToken :String)
     {
         viewModelScope.launch {
             try {
-                val popularMovies = moviesRepository.getPopularMovies(authToken)
-                Log.d("Main View Model",popularMovies.body().toString())
+                //val popularMovies = moviesRepository.getPopularMovies(authToken)
+                //Log.d("Main View Model",popularMovies.body().toString())
             }
             catch (e:Exception) {
                 Log.d("Main View Model", e.toString())

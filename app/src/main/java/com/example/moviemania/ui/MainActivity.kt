@@ -7,12 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.moviemania.R
-import com.example.moviemania.data.repository.MoviesRepository
-import com.example.moviemania.data.source.local.database.MovieDatabase
-import com.example.moviemania.data.source.remote.MovieNetwork
-import com.example.moviemania.data.source.remote.MovieServices
-import com.example.moviemania.model.PopularMovies
+import com.example.moviemania.data.repository.MovieRepository
+
 import com.example.moviemania.ui.MainActivity.API.API_TOKEN
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -20,12 +18,14 @@ import kotlinx.coroutines.launch
 import okhttp3.Dispatcher
 import okhttp3.Response
 import java.lang.Exception
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var movieViewModel : MainViewModel
     private val TAG : String = "Main Activity"
+    @Inject lateinit var moviesRepository : MovieRepository
 
     object API{
 
@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity() {
             movieViewModel.getPopularMovies(api.API_TOKEN)
         }
         movieViewModel.popularMovies*/
-        val dbInstance = MovieDatabase.getInstance(applicationContext)
+        /*val dbInstance = MovieDatabase.getInstance(applicationContext)
         val moviesRepository  = MoviesRepository(
             MovieNetwork, dbInstance
-        )
+        )*/
         lifecycleScope.launch(Dispatchers.IO){
             try {
                 val movies =  moviesRepository.getPopularMovies(API_TOKEN)

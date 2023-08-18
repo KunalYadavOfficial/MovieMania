@@ -49,6 +49,7 @@ interface MovieServices {
 }
 
 //singleton object but lazy
+/*
 object MovieNetwork
 {
     //const val BASE_URL = "https://api.themoviedb.org/3/"
@@ -59,4 +60,4 @@ object MovieNetwork
         .build()
 
     val movieNetwork  =   retrofit.create(MovieServices::class.java)
-}
+}*/

@@ -4,14 +4,13 @@ package com.example.moviemania.data.repository
 
 
 import com.example.moviemania.data.source.local.database.MovieDatabase
-import com.example.moviemania.data.source.remote.MovieNetwork
-import com.example.moviemania.data.source.remote.MovieNetwork.movieNetwork
 import com.example.moviemania.data.source.remote.MovieServices
 import com.example.moviemania.model.MovieDetails
 import com.example.moviemania.model.PopularMovies
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Path
+import javax.inject.Inject
 
 
 interface MovieRepository {
@@ -22,7 +21,7 @@ interface MovieRepository {
 }
 
 
-class MoviesRepository (private val networkService : MovieNetwork,
+class MoviesRepository @Inject constructor(private val networkService : MovieServices,
                         private val movieDatabase : MovieDatabase
 ) : MovieRepository
 {
@@ -34,11 +33,11 @@ class MoviesRepository (private val networkService : MovieNetwork,
 
     override suspend fun getPopularMovies(authToken: String): Response<PopularMovies>{
 
-        return networkService.movieNetwork.getPopularMovies(authToken)
+        return networkService.getPopularMovies(authToken)
     }
 
     override suspend fun getMovieDetails(authToken: String,movieId:Int): Response<MovieDetails> {
-        return networkService.movieNetwork.getMovieDetails(authToken,movieId)
+        return networkService.getMovieDetails(authToken,movieId)
     }
 
 }
