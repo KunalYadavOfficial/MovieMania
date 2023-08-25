@@ -10,6 +10,7 @@ import com.example.moviemania.R
 import com.example.moviemania.data.repository.MovieRepository
 
 import com.example.moviemania.ui.MainActivity.API.API_TOKEN
+import com.example.moviemania.utils.NetworkUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity() {
         val moviesRepository  = MoviesRepository(
             MovieNetwork, dbInstance
         )*/
+
+        /**
+         * Fetching popular movies
+         */
         lifecycleScope.launch(Dispatchers.IO){
             try {
                 val movies =  moviesRepository.getPopularMovies(API_TOKEN)
@@ -59,7 +64,9 @@ class MainActivity : AppCompatActivity() {
         //Log.d("Main Activity API result", movie.toString())
 
 
-
+        /**
+         * Fetching particular movie detail
+         */
         lifecycleScope.launch(Dispatchers.IO) {
 
             try {
@@ -72,4 +79,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    override fun onStart() {
+        super.onStart()
+        handleNetworkChanges()
+    }
+
+    fun handleNetworkChanges()
+    {
+        NetworkUtil.getNetworkLiveData(applicationContext).observe(this) { isConnected ->
+            //No internet connectivity
+            if(!isConnected)
+            {
+                //show a bottom/top network status bar as in youtube app
+            }
+            else
+            {
+                //internet connectivity available
+
+            }
+
+        }
+    }
+
+
+
 }

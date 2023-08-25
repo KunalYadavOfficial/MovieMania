@@ -7,6 +7,7 @@ import com.example.moviemania.data.source.local.database.MovieDatabase
 import com.example.moviemania.data.source.remote.MovieServices
 import com.example.moviemania.model.MovieDetails
 import com.example.moviemania.model.PopularMovies
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Path
@@ -19,7 +20,6 @@ interface MovieRepository {
     suspend fun getMovieDetails(authToken: String,movieId: Int) : Response<MovieDetails>
     //fun getMoviesById(val id : MovieId) :
 }
-
 
 class MoviesRepository @Inject constructor(private val networkService : MovieServices,
                         private val movieDatabase : MovieDatabase

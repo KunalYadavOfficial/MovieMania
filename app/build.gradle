@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.moviemania"
-        minSdk 26
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -97,6 +97,10 @@ dependencies {
     //Hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+
+    //Circular Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
 
