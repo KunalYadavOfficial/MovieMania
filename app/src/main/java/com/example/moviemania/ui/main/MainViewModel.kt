@@ -1,4 +1,4 @@
-package com.example.moviemania.ui
+package com.example.moviemania.ui.main
 
 import android.app.Application
 import android.content.Context

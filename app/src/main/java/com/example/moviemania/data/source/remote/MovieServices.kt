@@ -25,7 +25,7 @@ interface MovieServices {
     //eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYzM3ZDM4ZmYwOTY1ZGRmOTE0YTViMTNjMmFjMGMyMCIsInN1YiI6IjY0ODc0ZDQzYzAzNDhiMDBjODJmNGFhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zm2wGkYgzp5YhIdY8F2J2owppb66BuRnNhLUseVTYBs
     @GET("movie/popular?page=1")
     @Headers("accept: application/json")
-     suspend fun getPopularMovies(
+      suspend fun getPopularMovies(
         @Header("Authorization") authToken : String,
     ) : Response<PopularMovies>
 

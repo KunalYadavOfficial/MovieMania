@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity"
-    android:padding="20dp"
-    android:background="@color/black">
+    tools:context=".ui.main.MainActivity"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tv_userName"
@@ -23,57 +22,78 @@
         android:id="@+id/profile_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:civ_border_color="@color/white"
+        app:civ_border_color="@color/black"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/ic_launcher_foreground"/>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corner_black_border"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/rounded_corner_white_border"
-        >
-        <SearchView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_image">
 
-        <EditText
+        <SearchView
+            android:id="@+id/sv_searchMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <!--<EditText
             android:id="@+id/et_search_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/search"
-            android:textColor="@color/white"
-            android:layout_marginEnd="10dp"/>
-
+            android:layout_marginEnd="10dp"
+            android:inputType="text"
+            android:autofillHints="Openheimer"
+            android:textColor="@color/black" />
+-->
     </LinearLayout>
-    
-    <TextView
-        android:layout_width=""
-        android:layout_height=""
 
-    <!--
+    <TextView
+        android:id="@+id/tv_popularMoviesHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/popular_movies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_popularMovies"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="horizontal"
+            tools:listitem="@layout/popular_movies_item_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@tools:sample/avatars" />
-    -->
+            app:layout_constraintTop_toBottomOf="@id/tv_popularMoviesHeading" />
 
-    <!--<androidx.recyclerview.widget.RecyclerView
+
+    <!--<TextView
+        android:id="@+id/tv_tvSeriesHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_series"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_popularMovies"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_TVSeries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:listitem="@tools:sample/avatars"
-        app:layout_constraintTop_toBottomOf="@+id/rv_popularMovies"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tvSeriesHeading"
         />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

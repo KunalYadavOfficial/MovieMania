@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 interface MovieRepository {
 
-    suspend fun getPopularMovies(authToken : String) : Response<PopularMovies>
+     suspend fun getPopularMovies(authToken : String) : Response<PopularMovies>
     suspend fun getMovieDetails(authToken: String,movieId: Int) : Response<MovieDetails>
     //fun getMoviesById(val id : MovieId) :
 }
