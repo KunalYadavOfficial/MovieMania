@@ -59,6 +59,13 @@ dependencies {
 
 
 
+    def activity_version = "1.7.2"
+
+    // Kotlin
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+
+
 
     //retrofit dependency
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

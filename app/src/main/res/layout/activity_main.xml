@@ -29,7 +29,7 @@
         android:src="@drawable/ic_launcher_foreground"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -62,22 +62,24 @@
         android:layout_height="wrap_content"
         android:text="@string/popular_movies"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_search"
         android:layout_marginTop="20dp"
         android:textSize="20sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
             android:id="@+id/rv_popularMovies"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/popular_movies_item_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_popularMoviesHeading" />
 
 
-    <!--<TextView
+    <TextView
         android:id="@+id/tv_tvSeriesHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,12 +90,14 @@
         android:textSize="20sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="5dp"
         android:id="@+id/rv_TVSeries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
-        tools:listitem="@tools:sample/avatars"
+        tools:listitem="@layout/tv_series_item_view"
         app:layout_constraintTop_toBottomOf="@+id/tv_tvSeriesHeading"
-        />-->
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ class PopularMovieVH(private val view : View) : RecyclerView.ViewHolder(view) {
         view.findViewById<ImageView>(R.id.im_popularMovies)
             //.setImageResource(R.drawable.sample_poster)
            .load(posterURL){
-               size(500,800)
+               size(400,700)
            }
     }
 }

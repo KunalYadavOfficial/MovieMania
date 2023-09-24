@@ -43,9 +43,7 @@ object NetworkUtil : ConnectivityManager.NetworkCallback() {
             }
         }
 
-
         networkLiveData.postValue(isConnected)
-
         return networkLiveData
     }
 
@@ -62,10 +60,5 @@ object NetworkUtil : ConnectivityManager.NetworkCallback() {
         override fun onLost(network: Network) {
             networkLiveData.postValue(false)
     }
-
-
-
-
-
 
 }

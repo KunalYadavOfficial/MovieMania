@@ -39,6 +39,15 @@ interface MovieServices {
     //base url : https://api.themoviedb.org/3/
     //https://image.tmdb.org/t/p/w185/fiVW06jE7z9YnO4trhaMEdclSiC.jpg for fetching image
 
+
+    @GET("tv/popular")
+    @Headers("accept: application/json")
+    suspend fun getPopularTVSeries(
+        @Header("Authorization") authToken: String
+    ) : Response<PopularMovies>
+
+
+
     //Singleton object not lazy
     companion object {
         const val BASE_URL = "https://api.themoviedb.org/3/"
